@@ -27,26 +27,3 @@ var myLogger = createLogger('My Logger');
 
 myLogger('some data');
 
-function createLogger(prefix){
-    return function (data, callback) {
-        callback(new Date().toISOString() + ' ' + prefix + ': ' + data);
-    };
-}
-
-var myLogger = createLogger('My Logger');
-
-myLogger('some data', function (a) {
-    console.log(a);
-});
-
-function createLogger(prefix){
-    return function (data, callback) {
-        callback(new Date().toISOString() + ' ' + prefix + ': ' + data);
-    };
-}
-
-var myLogger = createLogger('My Logger');
-
-myLogger('some data', function (a) {
-    console.log(a);
-});
