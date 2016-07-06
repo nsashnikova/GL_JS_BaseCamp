@@ -18,9 +18,7 @@ function extractCharacters(str){
  */
 
 function createLogger(prefix){
-    return function (data) {
-        console.log(new Date().toISOString() + ' ' + prefix + ': ' + data);
-    };
+    return console.log.bind(console, new Date().toISOString() + ' ' + prefix + ':');
 }
 
 var myLogger = createLogger('My Logger');
