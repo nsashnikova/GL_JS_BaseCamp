@@ -2,21 +2,18 @@
  * Created by Natasha on 07.07.2016.
  */
 
-function add() {
+function add(num) {
     var sum = 0;
-
-    function add() {
-        for (var i=0; i<arguments.length; i++) {
-            sum += Number(arguments[i]);
-        }
-        return add;
+    sum = sum+num;
+    function addSum(x) {
+        sum += x;
+        return addSum;
     }
-    add.valueOf = function valueOf(){
+    addSum.valueOf = function(){
         return sum;
     };
-    return add.apply(null,arguments);
+    return addSum;
 }
-
-console.log(1 + add(1)(2));
-console.log(1 + add(1)(2)(3)(4)(10));
-console.log(0 + add(2)(2));
+console.log(1 + add(1)(2)); // 4
+console.log(11 + add(1)(1)(1)(1)(1)(1)); // 7
+console.log(0 + add(2)(2)); // 4
