@@ -12,6 +12,8 @@ function getSum() {
     console.log(sum);
 }
 
+getSum(1,2,3); // 6
+
 //Make this function be able to take array as argument
 
 function getSumArr(arr) {
@@ -19,6 +21,9 @@ function getSumArr(arr) {
         return sum + cur;
     });
 }
+var myArr = [1,2,3];
+
+getSumArr(myArr); // 6
 
 /*
     Create a function called celsiusToFahrenheit:
@@ -31,6 +36,8 @@ function celsiusToFahrenheit (c) {
     return c + "C is " + f + "F";
 }
 
+celsiusToFahrenheit(10); // 10C is 50F
+
 /*  Create a function called fahrenheitToCelsius:
     Now store a fahrenheit temperature into a variable.
     Convert it to celsius and output "NN°F is NN°C."
@@ -40,7 +47,7 @@ function fahrenheitToCelsius (f) {
     var c = (f - 32) / 1.8;
     return f + "F is " + c + "C";
 }
-
+fahrenheitToCelsius (50); // 50F is 10C
 /*
 Write a JavaScript function that accepts a string as a parameter
 and find the longest word within the string.
@@ -73,7 +80,7 @@ function printDetails (obj) {
     return obj.name + '(' + obj.type + ')' + ' - ' + obj.age + '.';
 }
 
-printDetails(entity);
+printDetails(entity); // "John(Racoon) - 10."
 
 /*
 Rewrite that function to use this instead of argument
@@ -84,11 +91,11 @@ function printThis () {
     return this.name + '(' + this.type + ')' + ' - ' + this.age + '.';
 }
 
-printThis.call(entity);
-printThis.apply(entity);
+printThis.call(entity); // "John(Racoon) - 10."
+printThis.apply(entity); // "John(Racoon) - 10."
 
 var printRacoon = printThis.bind(entity);
-printRacoon();
+printRacoon(); // "John(Racoon) - 10."
 
 
 

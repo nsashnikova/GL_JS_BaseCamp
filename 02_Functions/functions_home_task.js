@@ -13,6 +13,10 @@ function extractCharacters(str){
     });
 }
 
+extractCharacters('abcd'); // ["a", "b", "c", "d"]
+extractCharacters('aaaabc'); //['a', 'b', 'c']
+extractCharacters('Hello, world'); // ["h", "e", "l", "o", ",", " ", "w", "r", "d"]
+
 /* Напишите функцию, которая будет возвращать новую функцию,
 с помощью которой можно будет выводить в консоль текстовую информацию.
  */
