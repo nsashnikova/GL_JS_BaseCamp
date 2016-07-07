@@ -18,10 +18,25 @@ function extractCharacters(str){
  */
 
 function createLogger(prefix){
-    return console.log.bind(console, new Date().toISOString() + ' ' + prefix + ':');
+    return function (data) {
+        console.log(new Date().toISOString() + ' ' + prefix + ': ' + data);
+    };
 }
 
 var myLogger = createLogger('My Logger');
 
 myLogger('some data');
+
+/*
+Для того, чтоб в консоли указывался номер строки именно в месте вызова функции, а не в месте её определения,
+мы создаем новую функцию, у которой контекст исполнения - объект window.console
+ */
+
+function createLogger(prefix){
+    return console.log.bind(console, new Date().toISOString() + ' ' + prefix + ':');
+}
+
+var myLogger = createLogger('My Logger');
+
+myLogger('some data'); // Логгер не ломает коллстек
 
