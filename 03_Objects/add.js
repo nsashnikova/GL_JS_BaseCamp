@@ -3,8 +3,7 @@
  */
 
 function add(num) {
-    var sum = 0;
-    sum = sum+num;
+    var sum = num;
     function addSum(x) {
         sum += x;
         return addSum;
