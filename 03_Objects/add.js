@@ -15,5 +15,5 @@ function add(num) {
     return addSum;
 }
 console.log(1 + add(1)(2)); // 4
-console.log(11 + add(1)(1)(1)(1)(1)(1)); // 7
+console.log(1 + add(1)(1)(1)(1)(1)(1)); // 7
 console.log(0 + add(2)(2)); // 4
