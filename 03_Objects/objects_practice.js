@@ -87,18 +87,19 @@ var myMusicCollection = [
     function Calculator(){
         this.num = 0;
         this.arr = [];
-        this.add = function(num){
-            this.arr.push(this.num += num);
-            return this.num;
-        };
-        this.getCurrentSum = function(index){
-            return index ? this.arr[index-1] : this.num;
-        };
         this.valueOf = function(){
             return this.num;
         }
     }
 
+    Calculator.prototype.add = function (val) {
+        this.arr.push(this.num += val);
+        return this.num;
+    };
+
+    Calculator.prototype.getCurrentSum = function(index){
+        return index ? this.arr[index-1] : this.num;
+    };
 /*
    Создайте два экземпляра класса Calculator
 */

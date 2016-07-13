@@ -44,3 +44,20 @@ var myLogger = createLogger('My Logger');
 
 myLogger('some data'); // Логгер не ломает коллстек
 
+function func0(sN) {
+    var res;
+    if ( typeof sN === 'string' ) {
+        res = document.querySelectorAll(sN);
+        if ( res.length === 1 ) {
+            res = res[0];
+        } else if ( res.length === 0 ) {
+            res = undefined;
+        };
+    } else if ( sN instanceof Node ) {
+        res = sN.nodeType;
+    } else {
+        throw new Error("wron input data");
+    };
+    return res;
+}
+
