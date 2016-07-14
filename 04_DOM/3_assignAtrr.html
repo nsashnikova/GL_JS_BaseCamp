@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div>
+    <h1>The List</h1>
+    <ul id="ul-id">
+        <li>First</li>
+        <li>Second</li>
+        <li>Third</li>
+    </ul>
+</div>
+
+<script>
+    /*
+     3. Создать функцию, которая выдает значение аттрибута или ставит его значение.
+
+     Чтение.
+     Что имеется в виду - Допустим есть элемент:
+
+     <titanic style="float:none"></titanic>
+
+     Если передать в функцию 'style' - она должна выдать "float:none"
+
+     <ninja color="black" visibility="hidden"></ninja>
+
+     Если передать в функцию 'color' - она должна выдать "black"
+
+     Установка.
+     Что имеется в виду - Допустим есть элемент:
+
+     <lego></lego>
+
+     Если передать в функцию два параметра - аттрибут и значение, то нода должна выглядеть
+
+     <lego style="display:block"></lego>
+
+
+     Если значение этого аттрибута уже задано, устанавливается новое значение.
+
+     Было:
+     <chucknorris speed="5"></chucknorris>
+
+     После вызова функции с передачей аттрибута и значения (speed Infinity):
+     <chucknorris speed="Infinity"></chucknorris>
+
+     */
+    
+    var ul = document.querySelector('ul');
+    var li = document.querySelector('li');
+
+
+    Element.prototype.assignAttr = function (attr, val){
+        return this.hasAttribute(attr) ? this.getAttribute(attr) : this.setAttribute(attr, val);
+    };
+
+    console.log(ul.assignAttr("id")); // ul-id
+    li.assignAttr("style", "color: red;"); // первый li стал красным
+
+</script>
+</body>
+</html>

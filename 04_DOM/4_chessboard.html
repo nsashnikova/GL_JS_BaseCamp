@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+var desk = document.createElement("div");
+desk.style.width = "400px";
+desk.style.height = "400px";
+desk.style.margin = "0 auto";
+desk.style.border = "1px solid black";
+document.body.appendChild(desk);
+
+var fragment = document.createDocumentFragment();
+
+for (var i=0; i < 64; i++){
+    var cell = document.createElement("div");
+    cell.style.width = '50px';
+    cell.style.height = '50px';
+    cell.style.float = 'left';
+    cell.style.background = Math.floor((i / 8) + i) % 2 == 0 ? 'white' : 'black';
+    fragment.appendChild(cell);
+}
+    desk.appendChild(fragment);
+</script>
+
+</body>
+</html>

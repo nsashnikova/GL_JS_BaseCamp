@@ -58,7 +58,7 @@ function findStr (str) {
        return (prev.length > current.length) ? prev: current;
    })
 }
-findStr('Hello, GlobalLogic!');
+findStr('Hello, GlobalLogic!'); // "GlobalLogic"
 
 /*Write a function that can print entity details based on next model:
 {

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<ul>
+    <li>First</li>
+    <li>Second</li>
+</ul>
+
+<script>
+
+//    Создать функцию аналог функции DOM insertBefore, но вставляет не до, а после указанного элемента.
+
+    var ul = document.querySelector('ul');
+    var li = document.createElement('li');
+    var text = document.createTextNode('New');
+    li.style.color = 'red';
+    li.appendChild(text);
+
+    function insertAfter(el, refEl) {
+        return refEl.nextSibling ? refEl.parentNode.insertBefore(el, refEl.nextSibling) : refEl.parentNode.appendChild(el);
+    }
+
+    insertAfter(li, ul.firstElementChild); // после первого li
+
+    insertAfter(li, ul.lastElementChild); // после последнего li
+
+</script>
+
+</body>
+</html>

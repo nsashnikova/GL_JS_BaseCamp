@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+
+<div>
+    <h1>The List</h1>
+    <ul id="ul-id">
+        <li>First</li>
+        <li>Second</li>
+        <li>Third</li>
+    </ul>
+</div>
+
+<script>
+
+//    0. Создать функицю, которая принимает строку селектор и возвращает:
+//    - undefined - если ничего не найдено
+//    - найденую ноду - если она одна
+//    - массив нод - если их несколько
+//    - если в функцию передать ноду, функция возвращает ее тип (Node, Text, Comment etc)
+
+    function findSelector(str) {
+        var found;
+        if (typeof str === 'string') {
+            found = document.querySelectorAll(str);
+            if (found.length === 0) {
+                found = undefined;
+            } else if (found.length === 1) {
+                found = found[0];
+            } else if (found.length > 1) {
+                return found;
+            }
+        } else if (str instanceof Node) {
+            found = str.nodeType;
+            if (found === 1) {
+                found = "ELEMENT_NODE";
+            } else if (found === 3) {
+                found = "TEXT_NODE";
+            } else if (found === 8) {
+                found = "COMMENT_NODE";
+            }
+        } else console.log('The input is not appropriate');
+        return found;
+    }
+
+
+    var el = document.querySelector('div');
+
+    console.log(findSelector("h2")); // undefined
+    console.log(findSelector("h1")); // нода
+    console.log(findSelector("li")); // массив li
+    console.log(findSelector("#ul-id")); // нода
+    console.log(findSelector(el)); // ELEMENT_NODE
+
+//1. Создать функцию, которая принимает строку селектор и возвращает:
+// - undefined - если ничего не найдено
+// - найденую ноду - если она одна
+// - первую найденную ноду - если их несколько
+
+    function findSelector1(str) {
+        var found;
+        if (typeof str === 'string') {
+            found = document.querySelectorAll(str);
+            if (found.length === 0) {
+                found = undefined;
+            } else if (found.length >= 1) {
+                found = found[0];
+            }
+        } else console.log('The input is not appropriate');
+          return found;
+        }
+
+    console.log(findSelector1("h2")); // undefined
+    console.log(findSelector1("h1")); // единственная нода
+    console.log(findSelector1("li")); // первая найденная нода
+
+
+</script>
+
+</body>
+</html>
+
