@@ -136,21 +136,23 @@ function loadPage(bookId) {
             document.getElementById('book').textContent = book.name;
             return fetch('api/autors' + book.authorId, 'GET');
         })
-        .then(function(author){
+        .then(function(author) {
             document.getElementById('author').textContent = author.name;
+            return Promise.all(author.books.map(function(book) {
+                return fetch('api/bestsellers/similar/' + book.id, 'GET');
+            }))
+        })
+         .then(function(simBooks) {
             var similarBooksLoaded = 0;
-            var similarBooksAmount = author.books.length;
-            author.books.forEach(function (similarBookId) {
-                return fetch('api/bestsellers/similar/' + similarBookId, 'GET')
-                            .then(function (book) {
-                                var sim = document.getElementById('similar');
-                                var p = document.createElement('p');
-                                sim.appendChild(p).textContent = book;
-                                similarBooksLoaded += 1;
-                            })
+            var similarBooksAmount = simBooks.length;
+            simBooks.forEach(function(similar){
+                var sim = document.getElementById('similar');
+                var p = document.createElement('p');
+                sim.appendChild(p).textContent = similar;
+                similarBooksLoaded += 1;
             });
             return similarBooksLoaded === similarBooksAmount;
-        })
+         })
         .then(function(){
             alert('Horray everything loaded');
         })
