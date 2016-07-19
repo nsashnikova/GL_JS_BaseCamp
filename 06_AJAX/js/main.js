@@ -108,7 +108,8 @@
             loadHero(heroId);
         } if ( heroId === 2 ) {
             prev.removeAttribute('disabled');
-        } if ( heroId === 88 ) { next.setAttribute('disabled', 'disabled');
+        } if ( heroId === 88 ) {
+            next.setAttribute('disabled', 'disabled');
         }
     }
 
