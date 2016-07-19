@@ -16,9 +16,6 @@
 
     loadHero(heroId);
 
-    next.addEventListener('click', nextHero);
-    prev.addEventListener('click', prevHero);
-
     function removeInfo (){
         info.textContent = '';
         filmBox.textContent = '';
@@ -100,6 +97,9 @@
         });
         filmBox.appendChild(ul);
     }
+
+    next.addEventListener('click', nextHero);
+    prev.addEventListener('click', prevHero);
 
     function nextHero(e) {
         if ( heroId < 88 ) {
