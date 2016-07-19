@@ -40,11 +40,9 @@ function Buyer(_garage, _budget) {
         return budget;
     };
     this.buyCar = function (car) {
-        if (budget < car.price) {
-            throw new Error("Not enough money");
-        } else {
+        if (budget > car.price) {
             budget -= car.price;
-            garage.addCar(car)
+            garage.addCar(car);
         }
     };
     // я добавила этот метод, чтоб выводить все купленные машины
@@ -75,7 +73,7 @@ function showRoom(buyer){
 Создайте экземпляр класса Garage и Buyer. Вызовите функцию showRoom и передайте в нее buyer.
  */
 var garage1 = new Garage();
-var buyer1 = new Buyer(garage1, 7000);
+var buyer1 = new Buyer(garage1, 2000);
 
 showRoom(buyer1);
 
